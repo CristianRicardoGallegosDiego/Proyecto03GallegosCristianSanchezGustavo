@@ -1,6 +1,7 @@
 package fciencias.edatos.proyecto03;
 
 import java.util.Random;
+import java.text.Normalizer;
 
 /**
 * Implementación básica de un HashMap.
@@ -106,7 +107,22 @@ public class AbstractHashMap<K,V> implements Map<K,V>{
 	 * @return un entero asociado a la clave dentro de un rango válido
 	 */
 	private int hashFuction(K k){
-		int hashCode = (int) (Math.abs(k.hashCode() * scale + shift) % prime);
-		return hashCode % capacity;
+		String hashCode = (String)k;
+		hashCode = hashCode.substring(0, 1);
+		hashCode = cleanString(hashCode);
+		char nuevo = hashCode.charAt(0);
+		//////////////////////////////////// PELIGROOOOOOOOO //////////////////////////////// FALTA
+		return 10; 
 	}
+
+	/**
+	 * METODO PARA PODER BORRAR ACENTOS
+	 * @param texto es la cadena a la que se le quiere quitar acentos
+	 * @return
+	 */
+	private static String cleanString(String texto) {
+        texto = Normalizer.normalize(texto, Normalizer.Form.NFD);
+        texto = texto.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+        return texto;
+    }
 }
