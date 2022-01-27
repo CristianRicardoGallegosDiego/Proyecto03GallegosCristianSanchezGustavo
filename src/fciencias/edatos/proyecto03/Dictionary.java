@@ -1,24 +1,24 @@
 package fciencias.edatos.proyecto03;
 
 import java.io.File;
+import java.util.Hashtable;
 import java.util.Scanner;
 
 public class Dictionary {
 
-    private MapTree diccionario = new MapTree();
+    private Hashtable<String, String> diccionario = new Hashtable<String, String>(646618);
 
     public Dictionary(){
         readTxt("src/fciencias/edatos/proyecto03/Diccionario.txt");
     }
 
-    public MapTree getDictionary(){
+    /**
+     * Metodo que nos regresa el diccionario con todas las posibles palabras que hay.
+     * @return un Hastable con todas las posibles palabras que hay en español.
+     */
+    public Hashtable<String, String> getDictionary(){
         return diccionario;
     }
-    
-    /**
-     * METODO DE REGRESO PARA PODER OBTENER EL MAPA DONDE ESTA EL DICCIONARIO
-     * @return un mapa con los diccionarios
-     */
 
     /**
      * METODO QUE HACE LA LECTURA DEL DICCIONARIO.
