@@ -47,6 +47,7 @@ public class Main {
                 temporal[i] = Character.toString(nueva.charAt(i));
             }
             if(verifica(temporal, playerOne)){
+                System.out.println("PUEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 if(juego.getDictionary().contains(nueva)){
                     System.out.println("VERDEROOOOOOOOOOOO");
                }
@@ -71,6 +72,12 @@ public class Main {
         return letras;
     } 
 
+    /**
+     * METODO AUXILIAR QUE NOS AYUDA A VERIFICAR SI LAS PALABRAS INGRESADAS SON IGUALES A LAS YA DADAS
+     * @param arreglo es el arreglo con las letras que metio el usuario
+     * @param verdadero es el arreglo con las letras ya dadas
+     * @return
+     */
     public static boolean verifica(String[] arreglo, String[] verdadero){
         boolean contiene = false;
         for (int i = 0; i < arreglo.length; i++) {

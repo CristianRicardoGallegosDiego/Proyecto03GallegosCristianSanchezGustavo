@@ -30,9 +30,21 @@ public class Game {
         Random r = new Random();
         String array[] = new String[10];
         for(int i=0; i<10; i++) {
-            int valorLetra = (r.nextInt(25)+97);
-            char temporal = (char)valorLetra;
-            array[i]= String.valueOf(temporal);
+            int caseOne = r.nextInt(2);
+            switch (caseOne) {
+                case 0:
+                    int valor = r.nextInt(5);
+                    array[i]=String.valueOf(vocales[valor]);
+                    break;
+                case 1:
+                    int valorLetra = (r.nextInt(25)+97);
+                    char temporal = (char)valorLetra;
+                    array[i]= String.valueOf(temporal);
+                    break;
+                default:
+                    break;
+            }
+            
         }
         return array;
     }
