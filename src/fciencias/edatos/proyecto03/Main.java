@@ -47,9 +47,9 @@ public class Main {
                 temporal[i] = Character.toString(nueva.charAt(i));
             }
             if(verifica(temporal, playerOne)){
-                System.out.println("PUEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                //System.out.println("PUEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 if(juego.getDictionary().contains(nueva)){
-                    System.out.println("VERDEROOOOOOOOOOOO");
+                    //System.out.println("VERDEROOOOOOOOOOOO");
                }
             }
             
@@ -82,7 +82,7 @@ public class Main {
         boolean contiene = false;
         for (int i = 0; i < arreglo.length; i++) {
             for (int j = 0; j < verdadero.length; j++) {
-                if(arreglo[i].equals(arreglo[j])){
+                if(arreglo[i].equals(verdadero[j])){
                     contiene=true;
                     j=0;
                     if(i==arreglo.length-1){
@@ -91,6 +91,9 @@ public class Main {
                     i++;
                 }else{
                     contiene=false;
+                    if(j==verdadero.length-1){
+                        break;
+                    }
                 }
             }
         }
