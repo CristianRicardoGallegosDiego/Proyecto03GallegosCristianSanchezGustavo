@@ -1,6 +1,7 @@
 package fciencias.edatos.proyecto03;
  
 import java.util.Random;
+import java.util.Hashtable;
 
 public class Game {
 
@@ -25,6 +26,7 @@ public class Game {
      * @return
      */
     public String[] lettersRandom(){
+        char[] vocales ={'a', 'e', 'i', 'o', 'u'};
         Random r = new Random();
         String array[] = new String[10];
         for(int i=0; i<10; i++) {
@@ -33,6 +35,9 @@ public class Game {
             array[i]= String.valueOf(temporal);
         }
         return array;
+    }
+    public Hashtable<String, String> getDictionary(){
+        return diccionario.getDictionary();
     }
 
     public String[] getSecuenciaPlayerOne(){
