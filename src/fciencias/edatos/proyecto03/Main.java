@@ -10,21 +10,35 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String jugadorUno = sc.nextLine();
         boolean terminaEjecucion=false;
-        System.out.println("¿QUE DESEA HACER?\n 1.JUGAR 1 MINUTO\n 2.VER LAS MEJORES ESTADISTICAS\n 3.SALIR");
+        System.out.println("¿QUE DESEA HACER?\n1. JUGAR 1 MINUTO\n2. VER LAS MEJORES ESTADISTICAS\n3. SALIR");
         while(!terminaEjecucion){
             String decision= sc.nextLine();
             decision=decision.replaceAll("\\s+","");
             if(decision.equals("1")){
-                runGame(jugadorUno);
-                System.out.println("¿QUE MAS DESEA HACER?\n 1.JUGAR 1 MINUTO\n 2.VER LAS MEJORES ESTADISTICAS\n 3.SALIR");
+                System.out.println("¿Desea que la maquina genere las letras random, o quiere ingresar 9 LETRAS SIN SIGNOS DE PUNTUACION?"
+                                    +"\n1. MAQUINA GENERE RANDOM\n2. INGRESAR SOLO 9 LETRAS");
+                boolean asegurate=true;
+                while(asegurate){
+                    String recibe = sc.nextLine();
+                    recibe=recibe.replaceAll("\\s+","");
+                    if(recibe.equals("1")){
+                        asegurate=false;
+                    }else if(recibe.equals("2")){
+                        asegurate=false;
+                    }else{
+                        System.out.println("INGRESA SOLO EL NUMERO :D, LAS OPCIONES SON: \n1. MAQUINA GENERE RANDOM\n2. INGRESAR SOLO 9 LETRAS");
+                    }
+                }
+                //runGame(jugadorUno);
+                System.out.println("¿QUE MAS DESEA HACER?\n1. JUGAR 1 MINUTO\n2. VER LAS MEJORES ESTADISTICAS\n3. SALIR");
             }else if(decision.equals("2")){
-                System.out.println("¿QUE MAS DESEA HACER?\n 1.JUGAR 1 MINUTO\n 2.VER LAS MEJORES ESTADISTICAS\n 3.SALIR");
+                System.out.println("¿QUE MAS DESEA HACER?\n1. JUGAR 1 MINUTO\n2. VER LAS MEJORES ESTADISTICAS\n3. SALIR");
                 //FALTAAA
             }else if(decision.equals("3")){
                 System.out.println("NOS VEMOS :D, CUIDATE!!!!");
                 terminaEjecucion=true;
             }else{
-                System.out.println("ESCIRBE SOLO UN NUMERO :))), LAS OPCIONES SON:\n1.JUGAR 1 MINUTO\n 2.VER LAS MEJORES ESTADISTICAS\n 3.SALIR");
+                System.out.println("ESCIRBE SOLO UN NUMERO :))), LAS OPCIONES SON:\n1.JUGAR 1 MINUTO\n2. VER LAS MEJORES ESTADISTICAS\n3. SALIR");
             }
         }
        
