@@ -9,11 +9,24 @@ public class Main {
         System.out.println("BIENVENIDO AL JUEGO DEL MINUTO :D\n \nINGRESE SU NOMBRE : ");
         Scanner sc = new Scanner(System.in);
         String jugadorUno = sc.nextLine();
-        runGame(jugadorUno);
         boolean terminaEjecucion=false;
-        //while(!terminaEjecucion){
-            //System.out.println();
-        //}
+        System.out.println("¿QUE DESEA HACER?\n 1.JUGAR 1 MINUTO\n 2.VER LAS MEJORES ESTADISTICAS\n 3.SALIR");
+        while(!terminaEjecucion){
+            String decision= sc.nextLine();
+            decision=decision.replaceAll("\\s+","");
+            if(decision.equals("1")){
+                runGame(jugadorUno);
+                System.out.println("¿QUE MAS DESEA HACER?\n 1.JUGAR 1 MINUTO\n 2.VER LAS MEJORES ESTADISTICAS\n 3.SALIR");
+            }else if(decision.equals("2")){
+                System.out.println("¿QUE MAS DESEA HACER?\n 1.JUGAR 1 MINUTO\n 2.VER LAS MEJORES ESTADISTICAS\n 3.SALIR");
+                //FALTAAA
+            }else if(decision.equals("3")){
+                System.out.println("NOS VEMOS :D, CUIDATE!!!!");
+                terminaEjecucion=true;
+            }else{
+                System.out.println("ESCIRBE SOLO UN NUMERO :))), LAS OPCIONES SON:\n1.JUGAR 1 MINUTO\n 2.VER LAS MEJORES ESTADISTICAS\n 3.SALIR");
+            }
+        }
        
     }
 
@@ -54,15 +67,15 @@ public class Main {
                     if(play!=null){
                         if(!play.contains(nueva)){
                             play.add(indice,nueva);
-                            int punt = nueva.length();
-                            puntuacion1=puntuacion1+(punt*punt);
+                            int punt = nueva.length()*nueva.length();
+                            puntuacion1=puntuacion1+(punt);
                             System.out.println("PUNTUACIÓN: "+punt);
                             indice++;
                         }
                     }else{
                         play.add(indice,nueva);
-                        int punt = nueva.length();
-                        puntuacion1=puntuacion1+(punt*punt);
+                        int punt = nueva.length()*nueva.length();
+                        puntuacion1=puntuacion1+(punt);
                         System.out.println("PUNTUACIÓN: "+punt);
                         indice++;
                     }
@@ -71,7 +84,7 @@ public class Main {
             elapsedTime = (new Date()).getTime() - startTime;
             System.out.println("TIEMPO TRANSCURRIDO: "+elapsedTime/1000+ " seg.\n");
         }
-        System.out.println("\n TU TIEMPO TERMINO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println("\nTU TIEMPO TERMINO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         System.out.println("LA PUNTUACION TOTAL ES: "+ puntuacion1);
     }
 
