@@ -6,18 +6,13 @@ import java.util.Hashtable;
 public class Game {
 
     private String jugadorUno; 
-    private String jugadorDos; 
     private String[] jugador1;
-    private String[] jugador2;
     private int puntuacionUno;
-    private int puntuacionDos;
     private Dictionary diccionario;
 
-    public Game(String jugadorUno, String jugadorDos){
+    public Game(String jugadorUno){
         this.jugadorUno = jugadorUno;
-        this.jugadorDos = jugadorDos;
         this.jugador1 = lettersRandom();
-        this.jugador2 = lettersRandom();
         diccionario = new Dictionary();
     }
 
@@ -54,9 +49,5 @@ public class Game {
 
     public String[] getSecuenciaPlayerOne(){
         return jugador1;
-    }
-
-    public String[] getSecuenciaPlayerTwo(){
-        return jugador2;
     }
 }

@@ -6,23 +6,21 @@ import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("BIENVENIDO AL JUEGO DEL MINUTO :D\n \nIngrese su nombre jugador 1: ");
+        System.out.println("BIENVENIDO AL JUEGO DEL MINUTO :D\n \nINGRESE SU NOMBRE : ");
         Scanner sc = new Scanner(System.in);
         String jugadorUno = sc.nextLine();
-        System.out.println("Ingrese su nombre jugador 2: ");
-        String jugadorDos = sc.nextLine();
-        runGame(jugadorUno, jugadorDos);
+        runGame(jugadorUno);
         boolean terminaEjecucion=false;
         //while(!terminaEjecucion){
-        //    System.out.println();
+            //System.out.println();
         //}
        
     }
 
-    public static void runGame(String jugadorUno, String jugadorDos){
+    public static void runGame(String jugadorUno){
         System.out.println("Empezemos a jugar jugador "+ jugadorUno+ ": \n \n ");
         Scanner sc = new Scanner(System.in);
-        Game juego = new Game(jugadorUno, jugadorUno);
+        Game juego = new Game(jugadorUno);
         String[] playerOne = juego.getSecuenciaPlayerOne();
         String corridaUno = printSecuence(playerOne);
         System.out.print("DEBERAS FORMAR TODAS LAS POSIBLES PALABRAS CON LA SIGUIENTES LETRAS: "+ corridaUno+ 
@@ -37,6 +35,9 @@ public class Main {
         System.out.println("INICIAAAAAAAA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         long startTime = System.currentTimeMillis();
         long elapsedTime = 0L;
+        List<String> play = new List<String>(); 
+        int indice=0;
+        int puntuacion1=0;
         while (elapsedTime < 60*1000) { //60
             System.out.println("\nCADENA: "+corridaUno+"");
             System.out.println("INGRESA PALABRA: ");
@@ -50,13 +51,28 @@ public class Main {
                 //System.out.println("PUEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 if(juego.getDictionary().contains(nueva)){
                     //System.out.println("VERDEROOOOOOOOOOOO");
+                    if(play!=null){
+                        if(!play.contains(nueva)){
+                            play.add(indice,nueva);
+                            int punt = nueva.length();
+                            puntuacion1=puntuacion1+(punt*punt);
+                            System.out.println("PUNTUACIÓN: "+punt);
+                            indice++;
+                        }
+                    }else{
+                        play.add(indice,nueva);
+                        int punt = nueva.length();
+                        puntuacion1=puntuacion1+(punt*punt);
+                        System.out.println("PUNTUACIÓN: "+punt);
+                        indice++;
+                    }
                }
             }
-            
             elapsedTime = (new Date()).getTime() - startTime;
             System.out.println("TIEMPO TRANSCURRIDO: "+elapsedTime/1000+ " seg.\n");
         }
-        String[] playerTwo = juego.getSecuenciaPlayerTwo();
+        System.out.println("\n TU TIEMPO TERMINO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println("LA PUNTUACION TOTAL ES: "+ puntuacion1);
     }
 
     /**
